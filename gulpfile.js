@@ -3,7 +3,7 @@ const gulpSync = require('gulp-sync')(gulp);
 const requireDir = require('require-dir');
 const packageJson = require('./package.json');
 
-let defaultTasks = ['build', 'watch', 'browser-sync'];
+const defaultTasks = ['build', 'watch', 'browser-sync'];
 
 
 const baseConfig = {
