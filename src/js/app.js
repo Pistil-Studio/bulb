@@ -22,7 +22,7 @@ const Bulb = require('./modules/bulb');
 
 ////////////////////////////////////////
 // On configure toutes les vues ici
-const BarbaView = require('./pages/home').init();
+const HomeView = require('./pages/home').init();
 
 
 
