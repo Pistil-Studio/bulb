@@ -1,0 +1,39 @@
+/*********************
+BREAKPOINTS
+xl : desktop
+lg : laptop et plus grand
+md : tablet et plus grand
+sm : phablet et plus grand
+xs : mobile only
+*********************/
+
+@mixin breakpoint($point) {
+  @if $point == xxl {
+    @media (min-width: 1680px) { @content ; }
+  }
+  @else if $point == xl {
+    @media (min-width: 1440px) { @content ; }
+  }
+  @else if $point == lg {
+    @media (min-width: 1281px) { @content ; }
+  }
+  @else if $point == md {
+    @media (min-width: 1024px) { @content ; }
+  }
+  @else if $point == sm {
+    @media (min-width: 640px)  { @content ; }
+  }
+  @else if $point == xs {
+    @media (max-width: 640px)  { @content ; }
+  }
+  @else if $point == lt-lg {
+    @media (max-width: 1281px)  { @content ; }
+  }
+  @else if $point == lt-md {
+    @media (max-width: 1024px)  { @content ; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg, xl, xxl, lt-lg, lt-md";
+  }
+}

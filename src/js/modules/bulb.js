@@ -5,6 +5,9 @@
 const SmoothScroll = require('./smoothscroll.js')
 const SmoothPagesTransition = require('./smoothPagesTransition.js');
 const Barba = require('barba.js');
+const Menu = require('./menu.js');
+const Sharer = require('./sharer');
+const Cookiebar = require ('./cookieBar');
 
 class Bulb {
 
@@ -24,9 +27,15 @@ class Bulb {
 
         this.smoothscroll = new SmoothScroll(this);
         this.smoothPagesTransitions = new SmoothPagesTransition(this);
+
+        this.menu = new Menu(this);
+        this.sharer = new Sharer(this);
+        this.cookieBar = new Cookiebar();
+
         this.init();
 
     }
+
 
     /**
      *

@@ -1,11 +1,12 @@
-@import "../../node_modules/knacss/sass/knacss";
+@import "reset";
 @import "variables";
+@import "fonts";
+
+@import "assets/cookiebar";
+@import "assets/mainLoader";
+@import "assets/main-menu";
+
+@import "globals";
 
 
-#app{ position: fixed; top: 0; right: 0; left: 0; }
 
-.box{display: block; background: $pink; border: 2px solid #000000;}
-
-.square{position: relative;}
-.square:before{content:""; display: block; padding-top: 100%;}
-.square > .content{position: absolute; top: 0px; left: 0px;}

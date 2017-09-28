@@ -5,8 +5,6 @@ global.$ = require('jquery');
 global.Verge = require('verge');
 global._ = require('underscore');
 global.Barba = require('barba.js');
-global.TimelineMax = require('gsap').TimelineMax;
-global.TweenMax = require('gsap').TweenMax;
 global.Utils = require('./modules/utils');
 
 
