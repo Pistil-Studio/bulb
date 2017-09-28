@@ -1,5 +1,4 @@
 <?php
-
 define('SITE_NAME', 'bulb');
 define('SITE_VERSION', '1.0.0');
 
