@@ -1,5 +1,3 @@
-//const Barba = require('barba.js');
-
 /**
  * Gestion des changements de page smooth
  * Nous utilisons Barba.js pour faire ceci
@@ -19,7 +17,7 @@ class SmoothPagesTransition{
      *
      */
     init(){
-        self = this;
+        let self = this;
 
         Barba.Pjax.start();
         Barba.Pjax.getTransition = function() {
@@ -43,9 +41,7 @@ class SmoothPagesTransition{
      */
     pageDefaultCleanTransition(elt){
         return new Promise(function(resolve){
-            var t = new TimelineMax({ paused: true, onComplete: function(){ resolve(true) }});
-            t.to($(elt), 1, {alpha: 0, y:-50});
-            t.play();
+            resolve(true);
         })
     }
 
@@ -56,13 +52,26 @@ class SmoothPagesTransition{
      * @param elt
      * @param BarbaBaseTrantion
      */
-    pageDefaultAppearTransition(elt, BarbaBaseTrantion){
+    pageDefaultAppearTransition(elt, BarbaBaseTrantion, bulb) {
 
-
-        TweenMax.set($(elt), {visibility : 'visible', opacity : 0, y: -50});
-
-        var t = new TimelineMax({ paused: true, onComplete: function(){BarbaBaseTrantion.done();}});
-        t.to($(elt), 1, {alpha: 1, y:0});
+        TweenMax.set(
+            $(elt),
+            {
+                visibility: 'visible',
+                opacity: 1,
+                y: Verge.viewportH()
+            }
+        );
+        var t = new TimelineMax(
+            {
+                paused: true,
+                onComplete: function(){
+                    BarbaBaseTrantion.done();
+                    $(bulb.options.containerScrollable).trigger('SmoothPagesTransition:buildNextPage');
+                }
+            }
+        );
+        t.to($(elt), 1.5, {y: 0, ease: Expo.easeInOut})
         t.play();
     }
 
@@ -80,52 +89,64 @@ class SmoothPagesTransition{
             start: function() {
                 var _this = this;
 
-                Utils.debug('page transtion : start');
-
-                this._newContainerPromise.then(
-                    function(){
-                        Utils.debug('$$$');
-                        _this.clearCurentPage();
-                    }
-                );
-
-                /*
-                // choix de la transition
-                var cleaningTransition = self.pageDefaultCleanTransition(_this.oldContainer);
+                Utils.debug('page transition : start');
+                self.bulb.menu.close();
+                self.bulb.openLoader();
 
                 Promise
-                    .all([this.newContainerLoading, cleaningTransition])
-                    .then(this.buildNextPage.bind(this));
-                   */
+                    .all([this.newContainerLoading, _this.clearCurrentPage()])
+                    .then( this.loadNextPageAssets.bind(this) );
+
+
             },
+
 
             /**
              *
              */
-            clearCurentPage: function(){
-                var _this = this;
-                Utils.debug('page transtion : _newContainerPromise then');
-                var cleaningTransition = self.pageDefaultCleanTransition(_this.oldContainer);
-                cleaningTransition.then(
-                    function(){
-                        _this.buildNextPage()
-                    }
-                );
+            clearCurrentPage: function(){
+                let _this = this;
+                let cleaningTransition = self.pageDefaultCleanTransition(_this.oldContainer);
+                Utils.debug('pageTransition : clearCurrentPage');
+                return cleaningTransition;
+            },
+
+
+            /**
+             *
+             */
+            loadNextPageAssets: function(){
+                Utils.debug('pageTransition : loadNextPageAssets    ');
+                Utils.debug(this);
+                let _this = this;
+                let preloadAssetsPromise = self.bulb.preloadAssets();
+                preloadAssetsPromise.then(function(){
+                    _this.buildNextPage();
+                });
 
             },
 
 
 
+
+
+
             buildNextPage: function() {
+                var _this = this;
 
-                Utils.debug(this);
                 Utils.debug('pageTransition : buildNextPage');
+                self.bulb.defaultEvents();
+                self.bulb.closeLoader();
 
-                //$(this.newContainer).trigger('buildNextPage');
 
-                $(this.oldContainer).hide();
-                $(self.bulb.options.containerScrollable).trigger('SmoothPagesTransition:buildNextPage');
-                self.pageDefaultAppearTransition(this.newContainer, this);
+                /*
+                ga('send', {
+                    hitType: 'pageview',
+                    page: location.pathname
+                });
+                */
+
+                self.pageDefaultAppearTransition(this.newContainer, this, self.bulb);
             }
         });
 

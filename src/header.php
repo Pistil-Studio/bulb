@@ -74,6 +74,11 @@
             <nav><?php wp_nav_menu( array('theme_location' => 'main_menu') ); ?></nav>
             </div>
         </div>
+
+        <div class="page-loader">
+            page loading (ajax call)
+        </div>
+
     </header>
 
 
