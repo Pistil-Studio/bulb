@@ -7,7 +7,7 @@ const defaultTasks = ['build', 'watch', 'browser-sync'];
 
 
 const baseConfig = {
-    localhost: 'http://bulb/',
+    localhost: 'http://bleulocation/',
     packageJson: packageJson,
     compressed: true,
     watch: true
@@ -20,10 +20,10 @@ const paths = {
     styleWp: 'src/style.css',
     configWp: 'wp-config.php',
     pagesDest: wpThemePath,
-    fontsDest: wpThemePath + '/fonts',
-    imagesDest: wpThemePath + '/images',
-    stylesDest: wpThemePath + '/css',
-    scriptsDest: wpThemePath + '/js',
+    fontsDest: wpThemePath + '/assets/fonts',
+    imagesDest: wpThemePath + '/assets/images',
+    stylesDest: wpThemePath + '/assets/css',
+    scriptsDest: wpThemePath + '/assets/js',
     themesWp: 'wordpress/wp-content/themes/'
 };
 
@@ -32,6 +32,7 @@ const paths = {
 const devPaths = {
     pages: ['src/**/*.php', 'src/*.css'],
     scripts: 'src/js/**/*.js',
+    scriptsVendors: 'src/js/vendors/*.js',
     styles: 'src/css/**/*.scss',
     images: 'src/images/**/*.*',
     fonts: 'src/fonts/**/*.*',
@@ -48,12 +49,12 @@ requireDir('tasks');
 gulp.task('default', gulpSync.sync(defaultTasks));
 
 gulp.task('build', gulpSync.sync([
-    'clean', 'styles', 'scripts', 'pages', 'images', 'fonts'
+    'clean', 'styles', 'scripts', 'scriptsVendors', 'pages', 'images', 'fonts'
 ]));
 
 gulp.task('watch', () => {
     gulp.watch(gulp.paths.styles, ['styles']);
-    gulp.watch(gulp.paths.scripts, ['scripts']);
+    gulp.watch(gulp.paths.scripts, ['scripts', 'scriptsVendors']);
     gulp.watch(gulp.paths.pages, ['pages']);
     gulp.watch(gulp.paths.images, ['images']);
     gulp.watch(gulp.paths.fonts, ['fonts']);

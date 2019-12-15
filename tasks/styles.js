@@ -15,9 +15,11 @@ gulp.task('styles', function() {
                     this.emit('end');
                 }
         }))
+        /*
         .pipe(sassLint({configFile: 'sass-lint.yml'}))
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError())
+        */
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(rename({suffix: '.min'}))
