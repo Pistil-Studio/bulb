@@ -1,12 +1,12 @@
 body{
-  font-family: $mainfont;
+  font-family: $F-main;
   font-size: 10px;
-  color: $grey;
-  background: $pinkLight;
+  color: $C-grey;
+  background: $C-primaryLight;
 }
 
 a{
-  color: $pink;
+  color: $C-primary;
 }
 
 .app{

@@ -1,12 +1,16 @@
 .page-loader{
-  background: $pink;
+	background: $C-primaryLight;
   color: #fff;
   position: fixed;
+	top: 0;
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 30px;
+  height: 100vh;
   line-height: 30px;
   text-align: center;
-  visibility: hidden;
+	transform: scaleX(0);
+	transform-origin: left center;
+	z-index: $ZI-pageLoader;
+  //visibility: hidden;
 }

@@ -25,7 +25,7 @@ define('DB_NAME', 'bulb');
 define('DB_USER', 'bulb');
 
 /** Mot de passe de la base de données MySQL. */
-define('DB_PASSWORD', '60Rueracine69100!');
+define('DB_PASSWORD', 'bulb');
 
 /** Adresse de l’hébergement MySQL. */
 define('DB_HOST', 'localhost');

@@ -1,3 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900');
+@font-face {
+	font-family: "Montserrat";
+	src: url("#{$F-path}/Montserrat/Montserrat-SemiBold.ttf");
+	font-weight: $FW-semibold;
+	font-style: normal;
+}
 
-$mainfont: 'Playfair Display', serif;
+@font-face {
+	font-family: "Montserrat";
+	src: url("#{$F-path}/Montserrat/Montserrat-Bold.ttf");
+	font-weight: $FW-bold;
+	font-style: normal;
+}

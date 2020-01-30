@@ -1,5 +1,11 @@
+@mixin IE(){
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		@content;
+	}
+}
 /*********************
 BREAKPOINTS
+xxl : desktop
 xl : desktop
 lg : laptop et plus grand
 md : tablet et plus grand
@@ -7,33 +13,75 @@ sm : phablet et plus grand
 xs : mobile only
 *********************/
 
-@mixin breakpoint($point) {
-  @if $point == xxl {
-    @media (min-width: 1680px) { @content ; }
-  }
-  @else if $point == xl {
-    @media (min-width: 1440px) { @content ; }
-  }
-  @else if $point == lg {
-    @media (min-width: 1281px) { @content ; }
-  }
-  @else if $point == md {
-    @media (min-width: 1024px) { @content ; }
-  }
-  @else if $point == sm {
-    @media (min-width: 640px)  { @content ; }
-  }
-  @else if $point == xs {
-    @media (max-width: 640px)  { @content ; }
-  }
-  @else if $point == lt-lg {
-    @media (max-width: 1281px)  { @content ; }
-  }
-  @else if $point == lt-md {
-    @media (max-width: 1024px)  { @content ; }
-  }
 
-  @else {
-    @warn "Breakpoint mixin supports: xs, sm, md, lg, xl, xxl, lt-lg, lt-md";
-  }
+@mixin breakpoint($point) {
+	@if $point == fullhd {
+		@media (min-width: 1920px) { @content ; }
+	}
+	@else if $point == xxl {
+		@media (min-width: 1680px) { @content ; }
+	}
+	@else if $point == xl {
+		@media (min-width: 1440px) { @content ; }
+	}
+	@else if $point == lg {
+		@media (min-width: 1280px) { @content ; }
+	}
+	@else if $point == md {
+		@media (min-width: 1024px) { @content ; }
+	}
+	@else if $point == sm {
+		@media (min-width: 768px)  { @content ; }
+	}
+	@else if $point == xs {
+		@media (max-width: 640px)  { @content ; }
+	}
+	@else if $point == lt-xl {
+		@media (max-width: 1440px)  { @content ; }
+	}
+	@else if $point == lt-lg {
+		@media (max-width: 1280px)  { @content ; }
+	}
+	@else if $point == lt-md {
+		@media (max-width: 1024px)  { @content ; }
+	}
+	@else if $point == lt-sm {
+		@media (max-width: 768px)  { @content ; }
+	}
+	@else if $point == gt-md {
+		@media (min-width: 1025px)  { @content ; }
+	}
+	@else if $point == gt-lg {
+		@media (min-width: 1281px)  { @content ; }
+	}
+	@else if $point == only-xs {
+		@media (max-width: 410px) { @content ; }
+	}
+	@else if $point == only-xsPlus {
+		@media (min-width: 410px) and (max-width: 767px) { @content ; }
+	}
+	@else if $point == only-sm {
+		@media (min-width: 768px) and (max-width: 1023px) { @content ; }
+	}
+	@else if $point == only-md {
+		@media (min-width: 1024px) and (max-width: 1279px) { @content ; }
+	}
+	@else if $point == only-lg {
+		@media (min-width: 1280px) and (max-width: 1339px) { @content ; }
+	}
+	@else if $point == only-xl {
+		@media (min-width: 1440px) and (max-width: 1679px) { @content ; }
+	}
+	@else if $point == pano {
+		@media (min-width: 1024px) and (max-height: 635px) { @content ; }
+	}
+	@else {
+		@warn "Breakpoint mixin supports: xs, sm, md, lg, xl, xxl, lt-lg, lt-md";
+	}
+}
+@mixin center(){
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }

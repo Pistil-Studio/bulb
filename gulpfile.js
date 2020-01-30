@@ -7,7 +7,7 @@ const defaultTasks = ['build', 'watch', 'browser-sync'];
 
 
 const baseConfig = {
-    localhost: 'http://bleulocation/',
+    localhost: 'http://bulb/',
     packageJson: packageJson,
     compressed: true,
     watch: true

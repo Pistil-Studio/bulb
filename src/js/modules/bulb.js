@@ -2,12 +2,12 @@
  *
  */
 
-const SmoothScroll = require('./smoothscroll.js')
-const SmoothPagesTransition = require('./smoothPagesTransition.js');
-const Barba = require('barba.js');
-const Menu = require('./menu.js');
-const Sharer = require('./sharer');
-const Cookiebar = require ('./cookieBar');
+import Utils from "./utils";
+import Menu from './menu';
+import Sharer from './Sharer';
+import SmoothScroll  from './smoothscroll';
+import Cookiebar  from './cookieBar';
+import SmoothPagesTransition from "./smoothPagesTransition";
 
 class Bulb {
 
@@ -17,7 +17,7 @@ class Bulb {
         Utils.debug('Construct Bulb');
 
         this.name = 'Bulb web starter';
-        this.version = '0.1';
+        this.version = '1.0';
         this.dev = true;
         this.options = {
             containerScrollable: '#app',
@@ -81,19 +81,22 @@ class Bulb {
         });
 
     }
-    openLoader(){
-        Utils.debug('Bulb :: Open loader');
-        let TL = new TimelineMax();
-        TL.to(this.$pageLoader, 1, {autoAlpha: 1});
-        TL.play()
-    }
 
-    closeLoader(){
-        Utils.debug('Bulb :: Close loader');
-        let TL = new TimelineMax();
-        TL.to(this.$pageLoader, 1, {autoAlpha: 0});
-        TL.play();
-    }
+	openLoader(){
+		Utils.debug('Bulb :: Open loader');
+		let TL = new gsap.timeline();
+		TL.to(this.$pageLoader, 0.7, {scaleX: 1, ease: Expo.easeInOut});
+		TL.set(this.$pageLoader, {transformOrigin: 'right center'});
+		TL.play()
+	}
+
+	closeLoader(){
+		Utils.debug('Bulb :: Close loader');
+		let TL = new gsap.timeline();
+		TL.to(this.$pageLoader, 0.7, {scaleX: 0, ease: Expo.easeInOut});
+		TL.set(this.$pageLoader, {transformOrigin: 'left center'});
+		TL.play();
+	}
 
 
     /**

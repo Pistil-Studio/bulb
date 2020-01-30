@@ -6,7 +6,7 @@
     top: 50px;
     z-index: 10;
     cursor: pointer;
-    background: $pink;
+    background: $C-primary;
     color: #fff;
     padding: 5px;
   }
@@ -18,7 +18,7 @@
     z-index: 5;
     height: 100vh;
     width: 100vw;
-    background: $grey;
+    background: $C-grey;
     visibility: hidden;
     opacity: 0;
 

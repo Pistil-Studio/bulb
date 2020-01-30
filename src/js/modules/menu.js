@@ -1,3 +1,6 @@
+import Utils from "./utils";
+import Verge from 'verge';
+
 /**
  *
  */
@@ -55,8 +58,7 @@ class Menu{
         if(self.TL_menu) self.TL_menu.pause();
         self.TL_menu = new TimelineMax();
         self.TL_menu.add([
-            TweenMax.to(self.$menu.find('.main-menu__content'), 0.4, {autoAlpha: 1, ease: Expo.easeInOut}),
-            TweenMax.staggerFromTo(self.$menu.find('nav li'), 0.5, {x: 100, alpha: 0}, {x: 0, alpha: 1, ease: Expo.easeInOut}, 0.05)
+            gsap.to(self.$menu.find('.main-menu__content'), 0.4, {autoAlpha: 1, ease: Expo.easeInOut}),
         ]);
 
     }
@@ -78,7 +80,7 @@ class Menu{
         if(self.TL_menu) self.TL_menu.pause();
         self.TL_menu = new TimelineMax();
         self.TL_menu.add([
-            TweenMax.to(self.$menu.find('.main-menu__content'), 0.4, {autoAlpha: 0, ease: Expo.easeInOut})
+            gsap.to(self.$menu.find('.main-menu__content'), 0.4, {autoAlpha: 0, ease: Expo.easeInOut})
         ]);
 
     }

@@ -32,7 +32,7 @@ register_nav_menus( array(
 function bulb_scripts() {
 
 
-    wp_enqueue_style( 'bulb-style-all', get_template_directory_uri(). '/css/main.min.css', array(), SITE_VERSION );
+    wp_enqueue_style( 'bulb-style-all', get_template_directory_uri(). '/assets/css/main.min.css', array(), SITE_VERSION );
 
     wp_enqueue_script('preloadjs', 'https://code.createjs.com/preloadjs-0.6.2.min.js', array(), null, false);
     wp_localize_script( 'preloadjs', 'adminAjax', admin_url( 'admin-ajax.php' ) );

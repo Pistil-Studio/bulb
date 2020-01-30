@@ -1,3 +1,4 @@
+import Utils from "./utils";
 /**
  * Basé sur https://github.com/ellisonleao/sharer.js/blob/master/sharer.js
  */

@@ -1,3 +1,4 @@
+import Utils from "./utils";
 /**
  *
  */
@@ -59,8 +60,8 @@ class Popin{
         this.closeAll();
         Utils.debug('Popin : open');
         this.elt.addClass('opened');
-        TweenMax.set(this.elt.find('.popin-scrollable'), {y: 0});
-        TweenMax.to(this.elt, 0.5, {autoAlpha: 1});
+        gsap.set(this.elt.find('.popin-scrollable'), {y: 0});
+        gsap.to(this.elt, 0.5, {autoAlpha: 1});
         $('body').addClass('hasPopin');
     }
 
@@ -72,7 +73,7 @@ class Popin{
         Utils.debug('Popin : close');
         this.elt.removeClass('opened');
         let self = this;
-        TweenMax.to(this.elt, 0.3, {autoAlpha: 0, onComplete: function(){
+        gsap.to(this.elt, 0.3, {autoAlpha: 0, onComplete: function(){
             if(self.options.contentHtml){
                 $('.popin').remove();
             }
@@ -87,7 +88,7 @@ class Popin{
      *
      */
     closeAll(){
-        TweenMax.set($('.popin.opened'), {autoAlpha: 0});
+        gsap.set($('.popin.opened'), {autoAlpha: 0});
         $('.popin.opened').removeClass('opened');
     }
 

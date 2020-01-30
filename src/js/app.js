@@ -1,19 +1,15 @@
 ////////////////////////////////////////
 // Vendors
 ////////////////////////////////////////
-global.$ = require('jquery');
-global.Verge = require('verge');
-global._ = require('underscore');
-global.Barba = require('barba.js');
-global.Utils = require('./modules/utils');
+import $ from 'jquery';
 
 
 
 ////////////////////////////////////////
 // Bulb micro Framework
 ////////////////////////////////////////
-const Bulb = require('./modules/bulb');
-
+import Bulb from "./modules/bulb";
+import Utils from "./modules/utils";
 
 
 

@@ -18,8 +18,8 @@
 
         <!-- global assets -->
         assets.push({src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', id: 'jquery'});
-        assets.push({src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js', id: 'tweenmax'});
-        assets.push({src: '<?php echo get_template_directory_uri() . '/js/app.js' ?>', id: 'js_all'});
+        assets.push({src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js', id: 'tweenmax'});
+        assets.push({src: '<?php echo get_template_directory_uri() . '/assets/js/app.js' ?>', id: 'js_all'});
 
         <!-- page assets -->
         var pageAssets = document.querySelector('.preloadAssets');
@@ -42,15 +42,20 @@
             document.querySelector(".mainLoader-progress").style.width = (percent*100) + '%';
         }
 
-        function endLoading(event){
-            var tl = new TimelineMax({
-                onComplete: function(){
-                    $('.mainLoader').remove();
-                }
-            });
-            tl.to('.startloader-progress', 1, {alpha: 0});
-            tl.play();
-        }
+				function endLoading(event){
+					var tl = new gsap.timeline({
+						onComplete: function(){
+							jQuery('.mainLoader').remove();
+						}
+					});
+					tl.delay(1);
+					tl.add([
+							gsap.to('.mainLoader-logo', 1.5, {xPercent: -1000,  ease: Expo.easeInOut}),
+							gsap.to('.mainLoader', 1.5, {xPercent: 100, ease: Expo.easeInOut})
+						]
+					);
+					tl.play();
+				}
 
     });
 </script>
@@ -60,6 +65,7 @@
 <div class="app" id="app">
 
 
+		<div class="page-loader"></div>
 
 
     <header>
