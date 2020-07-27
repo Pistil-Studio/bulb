@@ -73,6 +73,17 @@
             Cookie bar
             <a href="#" class="cookie-bar__close">close</a>
         </div>
+        <div class="logo">
+            <?php function theme_prefix_the_custom_logo() {
+
+                if ( function_exists( 'the_custom_logo' ) ) {
+                    the_custom_logo();
+                }
+
+            }
+            theme_prefix_the_custom_logo();
+            ?>
+        </div>
 
         <div class="main-menu">
             <div class="main-menu__btn">MENU</div>

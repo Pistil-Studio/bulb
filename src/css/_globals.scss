@@ -1,8 +1,11 @@
-body{
+body {
   font-family: $F-main;
-  font-size: 10px;
   color: $C-grey;
   background: $C-primaryLight;
+}
+
+body, html {
+  font-size: 10px;
 }
 
 a{

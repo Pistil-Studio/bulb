@@ -25,6 +25,17 @@ register_nav_menus( array(
     'main_menu' => 'Menu principal'
 ) );
 
+function theme_prefix_setup() {
+
+    add_theme_support( 'custom-logo', array(
+        'height'      => 150,
+        'width'       => 150,
+        'flex-width' => true,
+        'flex-height' => true,
+    ) );
+
+}
+add_action( 'after_setup_theme', 'theme_prefix_setup' );
 
 /**
  * Enqueue scripts and styles.
@@ -42,6 +53,7 @@ function bulb_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'bulb_scripts' );
+
 
 
 
