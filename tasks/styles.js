@@ -1,0 +1,32 @@
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
+const sass = require('gulp-sass');
+const rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+const sassLint = require('gulp-sass-lint');
+const browserSync = require('browser-sync');
+
+gulp.task('styles', function() {
+    return gulp.src(gulp.paths.styles)
+        .pipe(plumber({
+                errorHandler: error => {
+                    console.log(error.message);
+                    this.emit('end');
+                }
+        }))
+        /*
+        .pipe(sassLint({configFile: 'sass-lint.yml'}))
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
+        */
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(autoprefixer(['last 2 versions', 'ie 8', 'ie 9', '> 1%']))
+        .pipe(sourcemaps.write('.', {
+                mapFile: mapFilePath => mapFilePath.replace('.js.map', '.map')
+}))
+    .pipe(gulp.dest(gulp.paths.stylesDest))
+        .pipe(browserSync.stream({match: '**/*.css'}));
+});

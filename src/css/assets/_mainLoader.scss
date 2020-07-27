@@ -1,0 +1,35 @@
+.mainLoader{
+	z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $C-primaryLight;
+  text-align: center;
+  color: #fff;
+	overflow: hidden;
+
+
+	&-logo{
+		width: 168px;
+		height: 126px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		svg{
+			width: 168px;
+			height: 126px;
+		}
+	}
+
+  &-progress{
+    height: 100vh;
+    width: 0;
+    background: $C-primary;
+    position: absolute;
+    top: 0;
+    transition: all 200ms linear;
+  }
+}

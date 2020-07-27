@@ -1,0 +1,18 @@
+stages:
+  - deploy
+
+before_script:
+  - apt-get update -qq
+  - apt-get install -y -qq ssh
+  - apt-get install -y -qq rsync
+  - apt-get install -y -qq sshpass
+
+deploy_to_remote_server:
+  stage: deploy
+  only:
+    - master
+  script:
+    - export SSHPASS=$SSH_KEY
+    - sshpass -e rsync -e "ssh -o StrictHostKeyChecking=no" -avz  --exclude "wp-config.php" ./www/* bulb@polen2.pistil-studio.fr:/home/bulb/public_html
+    - export SSHPASS=$SSH_KEY_RH
+    - sshpass -e rsync -e "ssh -o StrictHostKeyChecking=no" -avz  --exclude "wp-config.php" ./www/* bulb@polen2.pistil-studio.fr:/home/bulb/public_html
