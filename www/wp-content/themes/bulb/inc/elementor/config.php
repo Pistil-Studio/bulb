@@ -8,8 +8,10 @@ add_action( 'elementor/widgets/widgets_registered', function( $widgets_manager )
 
     include 'widget.base.php';
     include 'widget.video.php';
+    include 'widget.slider.php';
 
     $widgets_manager->register_widget_type( new Bulb_WidgetVideo());
+    $widgets_manager->register_widget_type( new Bulb_WidgetSlider());
 
     // suppression de tout les widget que nous ne voulons pas
     $widgetsToDelete = array(
