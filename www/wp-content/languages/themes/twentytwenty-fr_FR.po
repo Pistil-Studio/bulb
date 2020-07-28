@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Themes - Twenty Twenty package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-12-13 06:28:05+0000\n"
+"PO-Revision-Date: 2020-05-04 10:25:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: fr\n"
 "Project-Id-Version: Themes - Twenty Twenty\n"
 
@@ -131,14 +131,14 @@ msgid "Read More"
 msgstr "Lire la suite"
 
 #: inc/starter-content.php:129
-msgid "”Cyborgs, as the philosopher Donna Haraway established, are not reverent. They do not remember the cosmos.”"
+msgid "&#8220;Cyborgs, as the philosopher Donna Haraway established, are not reverent. They do not remember the cosmos.&#8221;"
 msgstr "« Les cyborgs, comme l’a fait remarquer la philosophe Donna Haraway, ne sont pas respectueux. Ils ne se souviennent pas du cosmos. »"
 
 #: classes/class-twentytwenty-customize.php:395
 msgid "Overlay Opacity"
 msgstr "Opacité de la superposition"
 
-#: template-parts/modal-search.php:20 searchform.php:24
+#: searchform.php:24 template-parts/modal-search.php:20
 msgid "Search for:"
 msgstr "Rechercher :"
 
@@ -146,17 +146,17 @@ msgstr "Rechercher :"
 msgid "search again"
 msgstr "chercher à nouveau"
 
-#. translators: %s: HTML character for up arrow
+#. translators: %s: HTML character for up arrow.
 #: footer.php:49
 msgid "Up %s"
 msgstr "Haut %s"
 
-#. translators: %s: HTML character for up arrow
+#. translators: %s: HTML character for up arrow.
 #: footer.php:43
 msgid "To the top %s"
 msgstr "Vers le haut %s"
 
-#. translators: Copyright date format, see https://secure.php.net/date
+#. translators: Copyright date format, see https://www.php.net/date
 #: footer.php:25
 msgctxt "copyright date format"
 msgid "Y"
@@ -166,14 +166,14 @@ msgstr "Y"
 msgid "404 not found"
 msgstr "404 non trouvé"
 
-#. translators: %s: Number of search results
+#. translators: %s: Number of search results.
 #: index.php:39
 msgid "We found %s result for your search."
 msgid_plural "We found %s results for your search."
 msgstr[0] "Nous avons trouvé %s résultat pour votre recherche."
 msgstr[1] "Nous avons trouvé %s résultats pour votre recherche."
 
-#. Translators: 1 = comment date, 2 = comment time
+#. translators: 1: Comment date, 2: Comment time.
 #: classes/class-twentytwenty-walker-comment.php:69
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
@@ -190,13 +190,13 @@ msgstr "Votre commentaire est en attente de modération."
 msgid "Leave a comment"
 msgstr "Laisser un commentaire"
 
-#. translators: %s: post title
+#. translators: %s: Post title.
 #: comments.php:37
 msgctxt "comments title"
 msgid "One reply on &ldquo;%s&rdquo;"
 msgstr "Une réponse sur « %s »"
 
-#. translators: 1: number of comments, 2: post title
+#. translators: 1: Number of comments, 2: Post title.
 #: comments.php:41
 msgctxt "comments title"
 msgid "%1$s reply on &ldquo;%2$s&rdquo;"
@@ -212,7 +212,7 @@ msgstr "Commentaires"
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés."
 
-#: functions.php:491 inc/starter-content.php:176 inc/starter-content.php:186
+#: inc/starter-content.php:176 inc/starter-content.php:186 functions.php:492
 msgid "Primary"
 msgstr "Principal"
 
@@ -225,11 +225,11 @@ msgstr "Menu des liens de réseaux sociaux"
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Modifier <span class=\"screen-reader-text\">%s</span>"
 
-#: functions.php:258
+#: functions.php:261
 msgid "Footer Menu"
 msgstr "Menu du pied de page"
 
-#: template-parts/content.php:48 template-parts/content-cover.php:138
+#: template-parts/content-cover.php:138 template-parts/content.php:48
 msgid "Pages:"
 msgstr "Pages :"
 
@@ -237,11 +237,11 @@ msgstr "Pages :"
 msgid "Footer"
 msgstr "Pied de page"
 
-#: template-parts/content.php:48 template-parts/content-cover.php:138
+#: template-parts/content-cover.php:138 template-parts/content.php:48
 msgid "Page"
 msgstr "Page"
 
-#: functions.php:496
+#: functions.php:497
 msgid "Secondary"
 msgstr "Secondaire"
 
@@ -269,8 +269,8 @@ msgstr "Développé"
 msgid "Social links"
 msgstr "Réseaux sociaux"
 
-#. translators: %s: Author name
-#: template-parts/entry-author-bio.php:20 inc/template-tags.php:354
+#. translators: %s: Author name.
+#: inc/template-tags.php:354 template-parts/entry-author-bio.php:20
 msgid "By %s"
 msgstr "Par %s"
 
@@ -300,8 +300,8 @@ msgstr "Article épinglé"
 msgid "Tags"
 msgstr "Étiquettes"
 
-#: template-parts/content-cover.php:70 template-parts/entry-header.php:36
-#: inc/template-tags.php:389
+#: inc/template-tags.php:389 template-parts/entry-header.php:36
+#: template-parts/content-cover.php:70
 msgid "Categories"
 msgstr "Catégories"
 
@@ -329,71 +329,71 @@ msgstr "Rechercher"
 msgid "Continue reading"
 msgstr "Lire la suite"
 
-#: functions.php:548
+#: functions.php:549
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:547
+#: functions.php:548
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr "Très grand"
 
-#: functions.php:542
+#: functions.php:543
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr "L"
 
-#: functions.php:541
+#: functions.php:542
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr "Grand"
 
-#: functions.php:536
+#: functions.php:537
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr "L"
 
-#: functions.php:535
+#: functions.php:536
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr "Normal"
 
-#: functions.php:530
+#: functions.php:531
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr "S"
 
-#: functions.php:529
+#: functions.php:530
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr "Petit"
 
-#: functions.php:514
+#: functions.php:515
 msgid "Background Color"
 msgstr "Couleur de l’arrière-plan"
 
-#: functions.php:486
+#: functions.php:487
 msgid "Accent Color"
 msgstr "Couleur de contraste"
 
-#: functions.php:375
+#: functions.php:378
 msgid "Footer #2"
 msgstr "Pied de page #2"
 
-#: functions.php:363
+#: functions.php:366
 msgid "Footer #1"
 msgstr "Pied de page #1"
 
-#: functions.php:338
+#: functions.php:341
 msgid "Skip to the content"
 msgstr "Aller au contenu"
 
-#: functions.php:259
+#: functions.php:262
 msgid "Social Menu"
 msgstr "Menu réseaux sociaux"
 
-#: functions.php:257
+#: functions.php:260
 msgid "Mobile Menu"
 msgstr "Menu sur mobile"
 
@@ -409,12 +409,12 @@ msgstr "Commentaires plus anciens"
 msgid "Newer Comments"
 msgstr "Commentaires plus récents"
 
-#: classes/class-twentytwenty-walker-page.php:134 inc/template-tags.php:555
+#: classes/class-twentytwenty-walker-page.php:107 inc/template-tags.php:555
 msgid "Show sub menu"
 msgstr "Afficher le sous-menu"
 
-#. translators: %d: ID of a post
-#: classes/class-twentytwenty-walker-page.php:82
+#. translators: %d: ID of a post.
+#: classes/class-twentytwenty-walker-page.php:70
 msgid "#%d (no title)"
 msgstr "#%d (sans titre)"
 
@@ -474,11 +474,11 @@ msgstr "Fermer le menu"
 msgid "We could not find any results for your search. You can give it another try through the search form below."
 msgstr "Nous n’avons trouvé aucun résultat à votre requête. Vous pouvez tenter une autre recherche avec le formulaire ci-dessous."
 
-#: functions.php:377
+#: functions.php:380
 msgid "Widgets in this area will be displayed in the second column in the footer."
 msgstr "Les widgets de cette partie seront affichés dans la seconde colonne du pied de page."
 
-#: functions.php:365
+#: functions.php:368
 msgid "Widgets in this area will be displayed in the first column in the footer."
 msgstr "Les widgets de cette partie seront affichés dans la première colonne du pied de page."
 
@@ -498,15 +498,15 @@ msgstr "<span class=\"nav-short\">Articles</span> plus récents"
 msgid "Expanded Social links"
 msgstr "Liens de réseaux sociaux étendus"
 
-#: functions.php:501
+#: functions.php:502
 msgid "Subtle Background"
 msgstr "Arrière-plan subtil"
 
-#: functions.php:255
+#: functions.php:258
 msgid "Desktop Horizontal Menu"
 msgstr "Menu horizontal grand écrans"
 
-#: functions.php:256
+#: functions.php:259
 msgid "Desktop Expanded Menu"
 msgstr "Menu étendu grands écrans"
 

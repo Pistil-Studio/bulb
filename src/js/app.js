@@ -11,6 +11,8 @@ import $ from 'jquery';
 import Bulb from "./modules/bulb";
 import Utils from "./modules/utils";
 
+import video from "./modules/video";
+
 
 
 
@@ -33,6 +35,7 @@ class Website extends Bulb{
      */
     defaultEvents() {
         Utils.debug('App : defaultEvents');
+        new video();
     }
 }
 

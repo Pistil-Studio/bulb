@@ -11,6 +11,7 @@ require 'inc/backend.php';
 require 'inc/assets.php';
 require 'inc/ajax.php';
 require 'inc/filters.php';
+require 'inc/elementor/config.php';
 
 
 // REMOVE WP EMOJI
@@ -24,6 +25,7 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 register_nav_menus( array(
     'main_menu' => 'Menu principal'
 ) );
+
 
 function theme_prefix_setup() {
 
@@ -47,8 +49,6 @@ function bulb_scripts() {
 
     wp_enqueue_script('preloadjs', 'https://code.createjs.com/preloadjs-0.6.2.min.js', array(), null, false);
     wp_localize_script( 'preloadjs', 'adminAjax', admin_url( 'admin-ajax.php' ) );
-
-    wp_deregister_script('jquery');
 
 
 }
