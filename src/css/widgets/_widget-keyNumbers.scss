@@ -1,0 +1,22 @@
+.keyNumbers {
+
+	text-align: center;
+	padding: $G-default;
+
+  &__title {
+    color: $C-primary;
+    font-family: $F-main;
+    font-weight: $FW-thin;
+    font-size: 0;
+    margin-bottom: .5rem;
+
+    > span {
+      font-size: 10rem;
+    }
+  }
+
+  &__body {
+    font-family: $F-main;
+    color: $C-grey;
+  }
+}
