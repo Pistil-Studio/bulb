@@ -1,0 +1,27 @@
+.quote{
+  overflow: auto;
+
+  &__icn{
+    svg{
+      height: 4rem;
+    }
+  }
+
+  &__content{
+    font-size: 2rem;
+    font-style: italic;
+    font-family: $F-main;
+    margin: $G-default 0;
+  }
+
+  &__author{
+    border-right: 4px solid $C-secondary;
+    text-align: right;
+    padding-right: $G-default;
+
+    &__name{
+      font-style: italic;
+      font-weight: $FW-bold;
+    }
+  }
+}

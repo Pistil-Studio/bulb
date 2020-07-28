@@ -12,6 +12,7 @@ import Bulb from "./modules/bulb";
 import Utils from "./modules/utils";
 
 import video from "./modules/video";
+import slider from "./modules/slider";
 
 
 
@@ -36,6 +37,7 @@ class Website extends Bulb{
     defaultEvents() {
         Utils.debug('App : defaultEvents');
         new video();
+        new slider();
     }
 }
 
