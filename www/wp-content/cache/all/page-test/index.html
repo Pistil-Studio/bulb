@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<title>page test &#8211; Bulb</title>
+<link rel='dns-prefetch' href='//code.createjs.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<!-- <link rel='stylesheet' id='wp-block-library-css'  href='http://bulb/wp-includes/css/dist/block-library/style.min.css?ver=5.4.2' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='bulb-style-all-css'  href='http://bulb/wp-content/themes/bulb/assets/css/main.min.css?ver=1.0.0' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='elementor-icons-css'  href='http://bulb/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.7.0' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='elementor-animations-css'  href='http://bulb/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=2.9.14' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='elementor-frontend-css'  href='http://bulb/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.9.14' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='elementor-global-css'  href='http://bulb/wp-content/uploads/elementor/css/global.css?ver=1595922752' type='text/css' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//bulb/wp-content/cache/wpfc-minified/kl5cmxx9/g0drt.css" media="all"/>
+<link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.4.2' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var adminAjax = "http:\/\/bulb\/wp-admin\/admin-ajax.php";
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://code.createjs.com/preloadjs-0.6.2.min.js'></script>
+<link rel='https://api.w.org/' href='http://bulb/wp-json/' />
+<link rel="canonical" href="http://bulb/page-test/" />
+<link rel='shortlink' href='http://bulb/?p=7' />
+<link rel="alternate" type="application/json+oembed" href="http://bulb/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fbulb%2Fpage-test%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://bulb/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fbulb%2Fpage-test%2F&#038;format=xml" />
+</head>
+<body class="page-template-default page page-id-7 wp-custom-logo elementor-default elementor-kit-9 elementor-page elementor-page-7">
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+var assets = [];
+<!-- global assets -->
+assets.push({src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', id: 'jquery'});
+assets.push({src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js', id: 'tweenmax'});
+assets.push({src: 'http://bulb/wp-content/themes/bulb/assets/js/app.js', id: 'js_all'});
+<!-- page assets -->
+var pageAssets = document.querySelector('.preloadAssets');
+if(pageAssets){
+pageAssetsArray = JSON.parse(pageAssets.innerHTML);
+assets = assets.concat(pageAssetsArray);
+}
+console.log(assets);
+var preloadJS = new createjs.LoadQueue(true);
+preloadJS.on("fileload", fileLoadProgress);
+preloadJS.on("complete", endLoading);
+preloadJS.loadManifest(assets);
+var fileLoaded = 0;
+function fileLoadProgress(event){
+fileLoaded ++;
+var percent =  (fileLoaded / assets.length);
+document.querySelector(".mainLoader-progress").style.width = (percent*100) + '%';
+}
+function endLoading(event){
+var tl = new gsap.timeline({
+onComplete: function(){
+jQuery('.mainLoader').remove();
+}
+});
+tl.delay(1);
+tl.add([
+gsap.to('.mainLoader-logo', 1.5, {xPercent: -1000,  ease: Expo.easeInOut}),
+gsap.to('.mainLoader', 1.5, {xPercent: 100, ease: Expo.easeInOut})
+]
+);
+tl.play();
+}
+});
+</script>
+<div class="app" id="app">
+<div class="page-loader"></div>
+<header>
+<div class="cookie-bar cookie-bar_closed">
+Cookie bar
+<a href="#" class="cookie-bar__close">close</a>
+</div>
+<div class="logo">
+<a href="http://bulb/" class="custom-logo-link" rel="home"><img width="1000" height="1000" src="http://bulb/wp-content/uploads/2020/07/logo-paca-blue.png" class="custom-logo" alt="Bulb" srcset="http://bulb/wp-content/uploads/2020/07/logo-paca-blue.png 1000w, http://bulb/wp-content/uploads/2020/07/logo-paca-blue-300x300.png 300w, http://bulb/wp-content/uploads/2020/07/logo-paca-blue-150x150.png 150w, http://bulb/wp-content/uploads/2020/07/logo-paca-blue-768x768.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></a>        </div>
+<div class="main-menu">
+<div class="main-menu__btn">MENU</div>
+<div class="main-menu__content">
+<nav><div class="menu"><ul>
+<li class="page_item page-item-2"><a href="http://bulb/page-d-exemple/">Page d’exemple</a></li>
+<li class="page_item page-item-7 current_page_item"><a href="http://bulb/page-test/" aria-current="page">page test</a></li>
+</ul></div>
+</nav>
+</div>
+</div>
+<div class="page-loader">
+page loading (ajax call)
+</div>
+</header>
+<div id="barba-wrapper">
+<div class="barba-container" data-namespace="barbanamespace">
+<main>
+<article id="post-7" class="post-7 page type-page status-publish hentry">
+<div class="entry-header">
+<h2 class="entry-title"><a href="http://bulb/page-test/" rel="bookmark">page test</a></h2>	</div><!-- .entry-header -->
+<div class="entry-content">
+<div data-elementor-type="wp-page" data-elementor-id="7" class="elementor elementor-7" data-elementor-settings="[]">
+<div class="elementor-inner">
+<div class="elementor-section-wrap">
+<section class="elementor-element elementor-element-837b68d elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="837b68d" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-element elementor-element-7bcfd6c elementor-column elementor-col-100 elementor-top-column" data-id="7bcfd6c" data-element_type="column">
+<div class="elementor-column-wrap  elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-a8bce96 elementor-widget elementor-widget-bulb-video" data-id="a8bce96" data-element_type="widget" data-widget_type="bulb-video.default">
+<div class="elementor-widget-container">
+<div class="video " data-uid="NlnFc54t-78" data-level="4">
+<div class="video__content">
+<div class="video__image" style="background-image: url(http://bulb/wp-content/uploads/2020/07/fyQr1T3GE34.png);">
+<div class="video__image__play"></div>
+</div>
+<div class="video-frame" id="playerNlnFc54t-78"></div>
+</div>
+</div>		</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-element elementor-element-2b0497d elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="2b0497d" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-element elementor-element-10c8ce0 elementor-column elementor-col-100 elementor-top-column" data-id="10c8ce0" data-element_type="column">
+<div class="elementor-column-wrap  elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-d6dc296 elementor-widget elementor-widget-bulb-slider" data-id="d6dc296" data-element_type="widget" data-widget_type="bulb-slider.default">
+<div class="elementor-widget-container">
+<div class="slider"><div class="slider__content slick"><div class="slider__content__item" style="background-image: url(http://bulb/wp-content/uploads/2020/07/bVWGUemqotE.png)"></div><div class="slider__content__item" style="background-image: url(http://bulb/wp-content/uploads/2020/07/restau.png)"></div><div class="slider__content__item" style="background-image: url(http://bulb/wp-content/uploads/2020/07/PkbyxvkGWcU.png)"></div></div><div class="slider__control"><div class="slider__control__btnLeft btn btn--left"><span></span></div><div class="slider__control__btnRight btn btn--right"><span></span></div></div></div>		</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-element elementor-element-06f3587 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="06f3587" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-element elementor-element-870a956 elementor-column elementor-col-100 elementor-top-column" data-id="870a956" data-element_type="column">
+<div class="elementor-column-wrap  elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-59072bf elementor-widget elementor-widget-bulb-keyNumbers" data-id="59072bf" data-element_type="widget" data-widget_type="bulb-keyNumbers.default">
+<div class="elementor-widget-container">
+<div class="keyNumbers">
+<div class="keyNumbers__title">
+<span class="keyNumbers__title__prefix">pr</span>
+<span class="keyNumbers__title__number">56</span>
+<span class="keyNumbers__title__suffix">€</span>
+</div>
+<div class="keyNumbers__body">body text</div>
+</div>		</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="elementor-element elementor-element-960ded9 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-id="960ded9" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class="elementor-row">
+<div class="elementor-element elementor-element-cf4abaa elementor-column elementor-col-100 elementor-top-column" data-id="cf4abaa" data-element_type="column">
+<div class="elementor-column-wrap  elementor-element-populated">
+<div class="elementor-widget-wrap">
+<div class="elementor-element elementor-element-e6266b5 elementor-widget elementor-widget-bulb-quote" data-id="e6266b5" data-element_type="widget" data-widget_type="bulb-quote.default">
+<div class="elementor-widget-container">
+<div class="quote containerMini">
+<div class="quote__icn">
+<svg
+xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+viewBox="0 0 47 39"
+width="47px" height="39px">
+<path fill-rule="evenodd"  fill="rgb(63, 58, 59)"
+d="M28.016,0.743 L28.016,19.734 L38.837,19.734 C38.837,25.727 33.992,30.586 28.016,30.586 L28.016,38.724 C38.475,38.724 46.952,30.223 46.952,19.734 L46.952,0.743 L28.016,0.743 ZM0.965,19.734 L11.786,19.734 C11.786,25.727 6.941,30.586 0.965,30.586 L0.965,38.724 C11.424,38.724 19.901,30.223 19.901,19.734 L19.901,0.743 L0.965,0.743 L0.965,19.734 Z"/>
+</svg>
+</div>
+<div class="quote__content gradientTxt">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+<div class="quote__author">
+<div class="quote__author__name">authorname</div>
+<div class="quote__author__title">authortitle</div>
+</div>
+</div>		</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div><!-- .entry-content -->
+</article>
+    </main>
+<footer></footer>
+</div> <!-- end #barba-wrapper -->
+</div> <!-- end .barba-container -->
+<div class="mainLoader">
+<div class="mainLoader-progress"></div>
+<div class="mainLoader-logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.1 136.2">
+<path fill="#010101" d="M47 5.3c25.2 0 45.7 20.5 45.7 45.7 0 25.2-20.5 45.7-45.7 45.7h-.5l-1.5.1c-2.7.2-4.8 2.5-4.8 5.3v28.7h-35V5.3H47M47 0H0v136.2h45.5v-34l1.5-.2c28.2 0 51-22.8 51-51 .1-28.2-22.8-51-51-51z"></path>
+<path fill="none" stroke="#010101" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M3.2 62.2l40.3 37.7L56.6 4.2zm53.4-58L78 85.1M44.2 99.7L5.8 129.1"></path>
+</svg>
+</div>
+</div>
+</div> <!-- fin #app -->
+<script type='text/javascript' defer src='http://bulb/wp-includes/js/wp-embed.min.js?ver=5.4.2'></script>
+<script type='text/javascript' src='http://bulb/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' defer src='http://bulb/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' defer src='http://bulb/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=2.9.14'></script>
+<script type='text/javascript' defer src='http://bulb/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4'></script>
+<script type='text/javascript' defer src='http://bulb/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.7.6'></script>
+<script type='text/javascript' defer src='http://bulb/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2'></script>
+<script type='text/javascript' defer src='http://bulb/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6'></script>
+<script type='text/javascript' defer src='http://bulb/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=2.9.14'></script>
+<script type='text/javascript'>
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","downloadImage":"Download image"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"2.9.14","urls":{"assets":"http:\/\/bulb\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"general":{"elementor_global_image_lightbox":"yes","elementor_lightbox_enable_counter":"yes","elementor_lightbox_enable_fullscreen":"yes","elementor_lightbox_enable_zoom":"yes","elementor_lightbox_enable_share":"yes","elementor_lightbox_title_src":"title","elementor_lightbox_description_src":"description"},"editorPreferences":[]},"post":{"id":7,"title":"page%20test%20%E2%80%93%20Bulb","excerpt":"","featuredImage":false}};
+</script>
+<script type='text/javascript' defer src='http://bulb/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=2.9.14'></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', '###googleId###', 'auto');
+ga('send', 'pageview');
+</script>
+</body>
+</html><!-- WP Fastest Cache file was created in 0.41673898696899 seconds, on 31-08-20 15:52:35 -->

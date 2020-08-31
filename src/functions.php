@@ -13,12 +13,28 @@ require 'inc/ajax.php';
 require 'inc/filters.php';
 require 'inc/elementor/config.php';
 
+// permet d'ajouter des options sur le chargement des js (sauf Jquery) pour les déferés
+// permet d'améliorer le Google speed page
+function defer_parsing_of_js( $url ) {
+    if ( is_user_logged_in() ) return $url; //don't break WP Admin
+    if ( FALSE === strpos( $url, '.js' ) ) return $url;
+    if ( strpos( $url, 'jquery.js' ) ) return $url;
+    return str_replace( ' src', ' defer src', $url );
+}
+add_filter( 'script_loader_tag', 'defer_parsing_of_js', 10 );
+
 
 // REMOVE WP EMOJI
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
+remove_action('wp_head', 'feed_links_extra', 3); // removes links to rss categories
+remove_action('wp_head', 'feed_links', 2); // minus links to the main rss and comments
+remove_action('wp_head', 'rsd_link'); // Really Simple Discovery service
+remove_action('wp_head', 'wlwmanifest_link'); // Windows Live Writer
+remove_action('wp_head', 'wp_generator'); // hide the wordpress version
+
 
 
 // déclarations des menus
