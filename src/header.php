@@ -11,7 +11,7 @@
 
 
 <script>
-
+/*
     document.addEventListener('DOMContentLoaded', function(){
 
         var assets = [];
@@ -58,6 +58,7 @@
 				}
 
     });
+    */
 </script>
 
 

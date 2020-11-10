@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import Utils from "./utils";
 import Verge from 'verge';
 

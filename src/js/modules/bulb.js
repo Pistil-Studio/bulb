@@ -1,7 +1,4 @@
-/**
- *
- */
-
+import $ from 'jquery';
 import Utils from "./utils";
 import Menu from './menu';
 import Sharer from './Sharer';
