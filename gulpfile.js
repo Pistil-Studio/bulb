@@ -1,62 +1,55 @@
 const gulp = require('gulp');
-const gulpSync = require('gulp-sync')(gulp);
 const requireDir = require('require-dir');
 const packageJson = require('./package.json');
 
-const defaultTasks = ['build', 'watch', 'browser-sync'];
 
-
-const baseConfig = {
+// Configuration de base
+gulp.config = {
     localhost: 'http://bulb/',
     packageJson: packageJson,
     compressed: true,
     watch: true
 };
 
-const wpThemePath = 'www/wp-content/themes/' + packageJson.name;
-const paths = {
-    basePath: 'www/',
-    pluginsWp: 'plugins/**/*.*',
-    styleWp: 'src/style.css',
-    configWp: 'wp-config.php',
-    pagesDest: wpThemePath,
-    fontsDest: wpThemePath + '/assets/fonts',
-    imagesDest: wpThemePath + '/assets/images',
-    stylesDest: wpThemePath + '/assets/css',
-    scriptsDest: wpThemePath + '/assets/js',
-    themesWp: 'wordpress/wp-content/themes/'
+// les dossier de destination
+const destPath = {
+    pagesDest: 'www/wp-content/themes/' + packageJson.name,
+    fontsDest: 'www/wp-content/themes/' + packageJson.name + '/assets/fonts',
+    imagesDest: 'www/wp-content/themes/' + packageJson.name + '/assets/images',
+    stylesDest: 'www/wp-content/themes/' + packageJson.name + '/assets/css',
+    scriptsDest: 'www/wp-content/themes/' + packageJson.name + '/assets/js',
 };
 
-
-
-const devPaths = {
-    pages: ['src/**/*.php', 'src/*.css'],
+// les dossier correspondant au sources
+const srcPaths = {
+    pages: ['src/**/*.php'],
     scripts: 'src/js/**/*.js',
     scriptsVendors: 'src/js/vendors/*.js',
     styles: 'src/css/**/*.scss',
     images: 'src/images/**/*.*',
     fonts: 'src/fonts/**/*.*',
     mainscript: './src/js/app.js'
-
 };
 
-gulp.paths = Object.assign(devPaths, paths);
-gulp.config = baseConfig;
+gulp.paths = Object.assign(srcPaths, destPath);
 
 // Gulp tasks
 requireDir('tasks');
 
-gulp.task('default', gulpSync.sync(defaultTasks));
 
-gulp.task('build', gulpSync.sync([
+
+gulp.task('watch', () => {
+    gulp.watch(gulp.paths.styles,  gulp.parallel('styles'));
+    gulp.watch(gulp.paths.scripts,  gulp.parallel('scripts', 'scriptsVendors'));
+    gulp.watch(gulp.paths.pages,  gulp.parallel('pages'));
+    gulp.watch(gulp.paths.images,  gulp.parallel('images'));
+    gulp.watch(gulp.paths.fonts,  gulp.parallel('fonts'));
+});
+
+gulp.task('build', gulp.series([
     'clean', 'styles', 'scripts', 'scriptsVendors', 'pages', 'images', 'fonts'
 ]));
 
-gulp.task('watch', () => {
-    gulp.watch(gulp.paths.styles, ['styles']);
-    gulp.watch(gulp.paths.scripts, ['scripts', 'scriptsVendors']);
-    gulp.watch(gulp.paths.pages, ['pages']);
-    gulp.watch(gulp.paths.images, ['images']);
-    gulp.watch(gulp.paths.fonts, ['fonts']);
-});
+
+gulp.task('default', gulp.parallel('build', 'watch', 'browser-sync'));
 

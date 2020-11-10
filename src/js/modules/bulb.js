@@ -5,9 +5,9 @@
 import Utils from "./utils";
 import Menu from './menu';
 import Sharer from './Sharer';
-import SmoothScroll  from './smoothscroll';
+// import SmoothScroll  from './smoothscroll';
 import Cookiebar  from './cookieBar';
-import SmoothPagesTransition from "./smoothPagesTransition";
+// import SmoothPagesTransition from "./smoothPagesTransition";
 
 class Bulb {
 
@@ -25,8 +25,8 @@ class Bulb {
             itemsParallaxable: '.parallaxable'
         };
 
-        this.smoothscroll = new SmoothScroll(this);
-        this.smoothPagesTransitions = new SmoothPagesTransition(this);
+        // this.smoothscroll = new SmoothScroll(this);
+        // this.smoothPagesTransitions = new SmoothPagesTransition(this);
 
         this.menu = new Menu(this);
         this.sharer = new Sharer(this);

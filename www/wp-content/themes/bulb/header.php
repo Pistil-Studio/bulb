@@ -19,7 +19,7 @@
         <!-- global assets -->
         assets.push({src: 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', id: 'jquery'});
         assets.push({src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js', id: 'tweenmax'});
-        assets.push({src: '<?php echo get_template_directory_uri() . '/assets/js/app.js' ?>', id: 'js_all'});
+        assets.push({src: '<?php echo get_template_directory_uri() . '/assets/js/app.min.js' ?>', id: 'js_all'});
 
         <!-- page assets -->
         var pageAssets = document.querySelector('.preloadAssets');

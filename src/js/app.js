@@ -10,16 +10,15 @@ import $ from 'jquery';
 ////////////////////////////////////////
 import Bulb from "./modules/bulb";
 import Utils from "./modules/utils";
-
-import video from "./modules/video";
-import slider from "./modules/slider";
+// import video from "./modules/video";
+// import slider from "./modules/slider";
 
 
 
 
 ////////////////////////////////////////
 // On configure toutes les vues ici
-const HomeView = require('./pages/home').init();
+// const HomeView = require('./pages/home').init();
 
 
 
@@ -36,8 +35,8 @@ class Website extends Bulb{
      */
     defaultEvents() {
         Utils.debug('App : defaultEvents');
-        new video();
-        new slider();
+        // new video();
+        // new slider();
     }
 }
 
