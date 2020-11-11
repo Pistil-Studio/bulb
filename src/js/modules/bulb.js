@@ -4,6 +4,9 @@ import gsap from 'gsap';
 import Utils from "./utils";
 import Cookiebar  from './cookieBar';
 import Menu from './menu';
+import BulbPageTransition from './BulbPageTransition';
+
+
 
 /**
  * Bulb Micro "Framework"
@@ -15,13 +18,6 @@ class Bulb {
         Utils.copyrights();
         Utils.debug('Construct Bulb');
 
-        if (!Bulb.instance) {
-            Bulb.instance = this
-        }
-
-
-        // Properties & Methods
-
         this.name = 'Bulb web starter';
         this.version = '2.0';
         this.dev = true;
@@ -29,21 +25,17 @@ class Bulb {
         // les différents container dont nous aurons besoin
         this.$app = $('#app');
         // correspond au loader entre le chargement des pages
-        this.$pageLoader = $('.page-loader');
+        this.$pageLoader = $('.pageLoader');
 
 
         this.options = {
             useTicker: false,
-            useLocomotiveScroll: true,
-            useBarbaJs: true,
+            useScrollEffects: true,
+            usePageTransition: true,
         };
         // correspond au loader principal à l'arrivée sur le site
         this.$mainLoader = $('.mainLoader');
         this.init();
-
-
-        // Initialize object
-        return Bulb.instance;
     }
 
 
@@ -58,16 +50,17 @@ class Bulb {
         if(this.options.useTicker){
             this.ticker();
         }
+
         // utilisation d'une librairie de scroll "locomotive"
-        if(this.options.useLocomotiveScroll){
+        if(this.options.useScrollEffects){
             this.scroll = new LocomotiveScroll({
                 el: this.$app.get(0),
                 smooth: true
             });
         }
         // gestion des transition entre les page (barbaJs)
-        if(this.options.useBarbaJs){
-
+        if(this.options.usePageTransition){
+            this.pageTransition = new BulbPageTransition(this)
         }
 
         // tous les composant qui son chargés quoi qu'il arrive
@@ -132,16 +125,21 @@ class Bulb {
 
 	openLoader(){
 		Utils.debug('Bulb :: Open loader');
-		let TL = new gsap.timeline();
-		TL.to(this.$pageLoader, 0.7, {scaleX: 1, ease: Expo.easeInOut});
-		TL.set(this.$pageLoader, {transformOrigin: 'right center'});
-		TL.play()
+        return new Promise(resolve => {
+            let TL = new gsap.timeline({
+                    onComplete: resolve
+                }
+            );
+            TL.fromTo(this.$pageLoader, {skewX: 10, xPercent: -10}, {duration: 2, skewX: 0, scaleX: 1, xPercent: 0, ease: 'Expo.easeInOut'});
+            TL.set(this.$pageLoader, {transformOrigin: 'right center'});
+            TL.play()
+        });
 	}
 
 	closeLoader(){
 		Utils.debug('Bulb :: Close loader');
 		let TL = new gsap.timeline();
-		TL.to(this.$pageLoader, 0.7, {scaleX: 0, ease: Expo.easeInOut});
+		TL.to(this.$pageLoader, {duration: 1.2, scaleX: 0, ease: 'Expo.easeInOut'});
 		TL.set(this.$pageLoader, {transformOrigin: 'left center'});
 		TL.play();
 	}
@@ -177,8 +175,4 @@ class Bulb {
     }
 
 }
-
-// on fait un singleton
-const instance = new Bulb();
-Object.freeze(instance);
-export default instance;
+export default Bulb;

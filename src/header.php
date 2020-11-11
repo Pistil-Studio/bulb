@@ -9,21 +9,13 @@
 
 <body <?php body_class(); ?>>
 
-<div class="app" id="app">
+<div class="app" id="app" data-barba="wrapper">
 
     <header>
         <?php get_template_part('template-parts/cookieBar'); ?>
 
         <div class="logo">
-            <?php function theme_prefix_the_custom_logo() {
-
-                if ( function_exists( 'the_custom_logo' ) ) {
-                    the_custom_logo();
-                }
-
-            }
-            theme_prefix_the_custom_logo();
-            ?>
+            <?php echo bulb_mainLogo(); ?>
         </div>
 
         <div class="main-menu">
@@ -33,13 +25,13 @@
             </div>
         </div>
 
-        <div class="page-loader">
-            page loading (ajax call)
+        <div class="pageLoader">
+            <div class="pageLoader__overlay"></div>
+            <div class="pageLoader__loader">loading</div>
         </div>
 
     </header>
 
 
     <div id="barba-wrapper">
-        <div class="barba-container" data-namespace="barbanamespace">
-            <main>
+        <main class="barba-wrapper-refreshable" data-barba="container" data-barba-namespace="home">

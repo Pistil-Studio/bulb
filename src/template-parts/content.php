@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article data-scroll-section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-header">
 		<?php
 		if ( is_single() ) :

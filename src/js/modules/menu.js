@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import gsap from 'gsap';
 import Utils from "./utils";
+import emitter from 'tiny-emitter/instance';
 
 /**
  *
@@ -29,6 +30,10 @@ class Menu{
      */
     init(){
         Utils.debug('Init menu');
+
+        emitter.on('barba::beforeLeave', () => {
+            this.close();
+        });
 
         let self = this;
         self.$btn.on('click', function(e){
