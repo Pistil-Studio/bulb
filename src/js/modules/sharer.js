@@ -8,9 +8,8 @@ import Utils from "./utils";
 
 class Sharer {
 
-    constructor(Bulb) {
+    constructor() {
         Utils.debug('Construct Sharer');
-        this.bulb = Bulb;
         this.init();
     }
 
@@ -19,10 +18,13 @@ class Sharer {
 
         let self = this;
 
+        // TODO : enlever le fait d'etre dépendant au bulb
+        /*
         $(this.bulb.options.containerMain).on('click', '.sharer', {sharer: self},  function(e){
             e.data.sharer.launch($(this));
             return false;
         });
+         */
     }
 
 

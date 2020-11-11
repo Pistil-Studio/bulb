@@ -1,0 +1,35 @@
+.fake{
+
+  width: 1200px;
+  margin: 0 auto;
+  max-width: 90%;
+
+  &__box{
+    width: 50%;
+    padding: 5rem;
+    color: #fff;
+    text-align: center;
+    background-color: $C-primary;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    font-size: 5rem;
+    overflow: hidden;
+    &:nth-child(odd){
+      background-color: $C-black;
+    }
+
+    p{
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    span{
+      display: inline-block;
+    }
+
+    &--right{
+      margin-left: 50%;
+    }
+  }
+
+}

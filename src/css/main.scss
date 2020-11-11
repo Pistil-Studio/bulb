@@ -3,10 +3,13 @@
 @import "fonts";
 @import "mixin";
 
+@import "vendors/locomotive-scroll";
+
 @import "assets/cookiebar";
 @import "assets/mainLoader";
 @import "assets/main-menu";
 @import "assets/page-loader";
+@import "assets/fake";
 
 @import "widgets/widget-video";
 @import "widgets/widget-slider";

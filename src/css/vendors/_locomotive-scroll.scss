@@ -1,0 +1,57 @@
+html {
+  &.has-scroll-smooth {
+    overflow: hidden;
+  }
+
+  &.has-scroll-dragging {
+    user-select: none;
+  }
+}
+
+body {
+  .has-scroll-smooth & {
+    overflow: hidden;
+  }
+}
+
+[data-scroll-container] {
+  .has-scroll-smooth & {
+    min-height: 100vh;
+  }
+}
+
+
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100%;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+
+  &:hover {
+    transform: scaleX(1.45);
+  }
+
+  &:hover, .has-scroll-scrolling &, .has-scroll-dragging & {
+    opacity: 1;
+  }
+}
+
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: grab;
+
+  .has-scroll-dragging & {
+    cursor: grabbing;
+  }
+}

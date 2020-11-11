@@ -5,23 +5,23 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: $C-primaryLight;
+  background: $C-primary;
   text-align: center;
   color: #fff;
 	overflow: hidden;
 
 
 	&-logo{
-		width: 168px;
-		height: 126px;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		svg{
-			width: 168px;
-			height: 126px;
-		}
+      width: 168px;
+      height: 126px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      svg{
+        width: 168px;
+        height: 126px;
+      }
 	}
 
   &-progress{

@@ -1,6 +1,6 @@
 import $ from 'jquery';
+import gsap from 'gsap';
 import Utils from "./utils";
-import Verge from 'verge';
 
 /**
  *
@@ -11,11 +11,10 @@ class Menu{
      *
      * @param options
      */
-    constructor(Bulb){
+    constructor(){
 
         Utils.debug('Construct menu');
 
-        this.bulb = Bulb;
         this.menuOpen = false;
         this.$menu = $('.main-menu');
         this.$btn = $('.main-menu__btn');
@@ -57,9 +56,9 @@ class Menu{
 
 
         if(self.TL_menu) self.TL_menu.pause();
-        self.TL_menu = new TimelineMax();
+        self.TL_menu = new gsap.timeline();
         self.TL_menu.add([
-            gsap.to(self.$menu.find('.main-menu__content'), 0.4, {autoAlpha: 1, ease: Expo.easeInOut}),
+            gsap.to(self.$menu.find('.main-menu__content'), {duration: .4, autoAlpha: 1, ease: 'Expo.easeInOut'}),
         ]);
 
     }
@@ -79,9 +78,9 @@ class Menu{
 
 
         if(self.TL_menu) self.TL_menu.pause();
-        self.TL_menu = new TimelineMax();
+        self.TL_menu = new gsap.timeline();
         self.TL_menu.add([
-            gsap.to(self.$menu.find('.main-menu__content'), 0.4, {autoAlpha: 0, ease: Expo.easeInOut})
+            gsap.to(self.$menu.find('.main-menu__content'),{duration: .4, autoAlpha: 0, ease: 'Expo.easeInOut'})
         ]);
 
     }

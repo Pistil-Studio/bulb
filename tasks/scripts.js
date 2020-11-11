@@ -13,7 +13,7 @@ gulp.task('scripts', function () {
     return browserify(gulp.paths.mainscript, {debug:true})
         .transform('babelify', {
             presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-transform-runtime']
+            plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-class-properties']
         })
         .bundle()
         .pipe(source('app.min.js'))

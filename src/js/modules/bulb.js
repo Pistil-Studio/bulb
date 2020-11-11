@@ -1,11 +1,13 @@
 import $ from 'jquery';
+import LocomotiveScroll from 'locomotive-scroll';
+import gsap from 'gsap';
 import Utils from "./utils";
-import Menu from './menu';
-import Sharer from './Sharer';
-// import SmoothScroll  from './smoothscroll';
 import Cookiebar  from './cookieBar';
-// import SmoothPagesTransition from "./smoothPagesTransition";
+import Menu from './menu';
 
+/**
+ * Bulb Micro "Framework"
+ */
 class Bulb {
 
     constructor (){
@@ -13,26 +15,35 @@ class Bulb {
         Utils.copyrights();
         Utils.debug('Construct Bulb');
 
+        if (!Bulb.instance) {
+            Bulb.instance = this
+        }
+
+
+        // Properties & Methods
+
         this.name = 'Bulb web starter';
-        this.version = '1.0';
+        this.version = '2.0';
         this.dev = true;
-        this.options = {
-            containerScrollable: '#app',
-            itemsReveable: '.revealable',
-            itemsParallaxable: '.parallaxable'
-        };
 
-        // this.smoothscroll = new SmoothScroll(this);
-        // this.smoothPagesTransitions = new SmoothPagesTransition(this);
-
-        this.menu = new Menu(this);
-        this.sharer = new Sharer(this);
-        this.cookieBar = new Cookiebar();
-
+        // les différents container dont nous aurons besoin
+        this.$app = $('#app');
+        // correspond au loader entre le chargement des pages
         this.$pageLoader = $('.page-loader');
 
+
+        this.options = {
+            useTicker: false,
+            useLocomotiveScroll: true,
+            useBarbaJs: true,
+        };
+        // correspond au loader principal à l'arrivée sur le site
+        this.$mainLoader = $('.mainLoader');
         this.init();
 
+
+        // Initialize object
+        return Bulb.instance;
     }
 
 
@@ -40,9 +51,49 @@ class Bulb {
      *
      */
     init(){
-        this.debug('Bulb init');
+        Utils.debug('Bulb init');
         this.initEvents();
-        this.smoothPagesTransitions.init();
+
+        // Lancement du ticker au besoin
+        if(this.options.useTicker){
+            this.ticker();
+        }
+        // utilisation d'une librairie de scroll "locomotive"
+        if(this.options.useLocomotiveScroll){
+            this.scroll = new LocomotiveScroll({
+                el: this.$app.get(0),
+                smooth: true
+            });
+        }
+        // gestion des transition entre les page (barbaJs)
+        if(this.options.useBarbaJs){
+
+        }
+
+        // tous les composant qui son chargés quoi qu'il arrive
+        new Cookiebar();
+        new Menu();
+
+        this.closeMainLoader();
+
+    }
+
+    /**
+     *
+     */
+    closeMainLoader() {
+        let tl = new gsap.timeline({
+            onComplete: () => {
+                this.$mainLoader.remove();
+            }
+        });
+        tl.delay(1);
+        tl.add([
+                gsap.to(this.$mainLoader.find('.mainLoader-logo'), {duration: 1.5, xPercent: -1000,  ease: 'Expo.easeInOut'}),
+                gsap.to(this.$mainLoader,{duration: 1.5, xPercent: 100, ease: 'Expo.easeInOut'})
+            ]
+        );
+        tl.play();
     }
 
 
@@ -100,42 +151,34 @@ class Bulb {
      *
      */
     initEvents(){
-        this.debug('initEvents');
-        this.resizeHandler();
-        this.requestAnimationFrameHandler();
+        Utils.debug('initEvents');
 
-        $(window).on('resize orientationchange', this.resizeHandler);
+
+
+        this.resizeHandler();
+        $(window).on('resize orientationchange', this.resizeHandler());
     }
 
     /**
+     * Todo : debounce la fonction
      * On mettra ici tout ce qui est propre au resize du site
      */
     resizeHandler(){
-        this.debug('resizeHandler');
-        this.smoothscroll.resizeContainer();
+        //this.debug('resizeHandler');
     }
 
 
-
     /**
-     *
+     * Todo : vérifier le ticker
      */
-    requestAnimationFrameHandler(){
-        var _this = this;
-        requestAnimationFrame(function(){_this.smoothscroll.scrolling()});
-    }
-
-
-
-    /**
-     * permet d'afficher dans la console si le mode dev est activé
-     * @param msg
-     */
-    debug(msg){
-        if(this.dev)
-            Utils.debug(msg);
+    ticker(){
+        console.debug('Ticker');
+        requestAnimationFrame( this.ticker() );
     }
 
 }
 
-module.exports = Bulb;
+// on fait un singleton
+const instance = new Bulb();
+Object.freeze(instance);
+export default instance;

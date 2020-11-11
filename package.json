@@ -18,8 +18,10 @@
   "homepage": "https://gitlab.com/pistil-studio/bulb#readme",
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
+    "@barba/core": "^2.9.7",
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.13",
     "browserify": "^17.0.0",
@@ -30,6 +32,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-terser-js": "^5.2.2",
     "jquery": "^3.5.1",
+    "locomotive-scroll": "^3.6.1",
     "node-sass": "^5.0.0",
     "require-dir": "^1.2.0",
     "slick-carousel": "^1.8.1",
