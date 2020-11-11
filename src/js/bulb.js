@@ -1,10 +1,14 @@
 import $ from 'jquery';
 import LocomotiveScroll from 'locomotive-scroll';
 import gsap from 'gsap';
-import Utils from "./utils";
-import Cookiebar  from './cookieBar';
-import Menu from './menu';
-import BulbPageTransition from './BulbPageTransition';
+import modular from 'modujs';
+
+import Utils from "./lib/utils";
+import Cookiebar  from './bulbAssets/cookieBar';
+import Menu from './bulbAssets/menu';
+import BulbPageTransition from './bulbPageTransition';
+import * as modules from './bulbModules';
+
 
 
 
@@ -45,6 +49,13 @@ class Bulb {
     init(){
         Utils.debug('Bulb init');
         this.initEvents();
+
+        // gestion des modules
+        this.modules = new modular({
+            modules: modules
+        });
+        this.modules.init(this.modules);
+
 
         // Lancement du ticker au besoin
         if(this.options.useTicker){

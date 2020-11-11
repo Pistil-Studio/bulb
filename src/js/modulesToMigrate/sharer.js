@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Utils from "./utils";
+import Utils from "../lib/utils";
 
 /**
  * Basé sur https://github.com/ellisonleao/sharer.js/blob/master/sharer.js

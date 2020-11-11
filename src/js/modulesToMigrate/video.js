@@ -1,4 +1,4 @@
-import Utils from "./utils";
+import Utils from "../lib/utils";
 import YouTubePlayer from 'youtube-player';
 
 
@@ -77,4 +77,3 @@ class Video {
 }
 
 module.exports = Video;
-    

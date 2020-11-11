@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Bulb from "./modules/bulb";
+import Bulb from "./bulb";
 
 ////////////////////////////////////////
 $('document').ready(function () {

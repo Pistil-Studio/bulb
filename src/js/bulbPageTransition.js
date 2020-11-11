@@ -2,7 +2,7 @@ import barba from '@barba/core';
 import gsap from 'gsap';
 import emitter from 'tiny-emitter/instance';
 import $ from 'jquery';
-import Utils from "./utils";
+import Utils from "./lib/utils";
 
 class BulbPageTransition{
 
@@ -37,6 +37,9 @@ class BulbPageTransition{
 
             // on re init locotomtive scroll
             this.bulb.scroll.init();
+
+            // on re init la gestion des module
+            this.bulb.modules.init(this.bulb.modules);
 
             // on envoie un event analytics car rechargement en ajax
             if(typeof ga === "function"){

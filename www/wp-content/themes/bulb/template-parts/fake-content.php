@@ -1,6 +1,11 @@
 
 <div class="fake" data-scroll-section>
-    <div class="fake__box"  data-scroll data-scroll-speed="-2">fake box</div>
+    <div class="fake__box"  data-scroll data-scroll-speed="-2">
+        <div data-module-example>
+            <h2>Example</h2>
+            <button data-example="button">Button</button>
+        </div>
+    </div>
     <div class="fake__box fake__box--right"  data-scroll data-scroll-speed="2">fake box</div>
     <div class="fake__box fake__box--right"  data-scroll data-scroll-speed="1">fake box</div>
     <div class="fake__box">

@@ -33,6 +33,7 @@
     "gulp-terser-js": "^5.2.2",
     "jquery": "^3.5.1",
     "locomotive-scroll": "^3.6.1",
+    "modujs": "^1.4.2",
     "node-sass": "^5.0.0",
     "require-dir": "^1.2.0",
     "slick-carousel": "^1.8.1",

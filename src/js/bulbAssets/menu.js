@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import gsap from 'gsap';
-import Utils from "./utils";
+import Utils from "../lib/utils";
 import emitter from 'tiny-emitter/instance';
 
 /**

@@ -1,4 +1,4 @@
-import Utils from "./utils";
+import Utils from "../lib/utils";
 import $ from 'jquery';
 import 'slick-carousel';
 
