@@ -1,7 +1,7 @@
 import barba from '@barba/core';
 import gsap from 'gsap';
 import emitter from 'tiny-emitter/instance';
-
+import $ from 'jquery';
 import Utils from "./utils";
 
 class BulbPageTransition{
@@ -23,9 +23,15 @@ class BulbPageTransition{
 
             // on destroy locotomtive scroll
             this.bulb.scroll.destroy();
+
         });
 
-        barba.hooks.after(() => {
+
+
+        barba.hooks.after((data) => {
+
+            this.refreshCustomHtml(data);
+
             // petit evenement catchable pas notre appli au besoin
             emitter.emit('barba::after');
 
@@ -38,6 +44,10 @@ class BulbPageTransition{
                 ga('send', 'pageview');
             }
         });
+
+
+
+
 
         // C'est la transition par defaut un volet qui masque le site pour laisser apparaitre la nouvelle page
         barba.init({
@@ -61,6 +71,29 @@ class BulbPageTransition{
                 }
             }]
         })
+    }
+
+    /**
+     * Permet de refresh des datas provenant de la page arrivante
+     * Dans notre cas, on met à jours la classe du body, et on injuecte les styles "inlines" d'elementor
+     * @param data
+     */
+    refreshCustomHtml(data){
+
+        // on va sauvegarder les styles custom d'elementor, plus changer au besoin les styles sur le body
+        let htmlObject = document.createElement('html');
+        htmlObject.innerHTML = data.next.html;
+        let newClassesToInject  = htmlObject.querySelector("body").className;
+        let elementorsCssToInject = $(htmlObject).find('#elementor-frontend-inline-css').html();
+
+
+        // on ajoute la classe du body
+        $('body').removeClass().addClass(newClassesToInject);
+        // on charge les styles iliens d'elementor
+        $('#elementor-frontend-inline-css').html(elementorsCssToInject);
+
+
+        console.debug(this);
     }
 
 }
