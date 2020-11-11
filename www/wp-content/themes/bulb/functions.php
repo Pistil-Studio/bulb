@@ -43,17 +43,6 @@ register_nav_menus( array(
 ) );
 
 
-function theme_prefix_setup() {
-
-    add_theme_support( 'custom-logo', array(
-        'height'      => 150,
-        'width'       => 150,
-        'flex-width' => true,
-        'flex-height' => true,
-    ) );
-
-}
-add_action( 'after_setup_theme', 'theme_prefix_setup' );
 
 /**
  * Enqueue scripts and styles.
