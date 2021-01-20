@@ -25,7 +25,7 @@
     "browserify": "^14.1.0",
     "del": "^2.2.2",
     "event-emitter": "^0.3.4",
-    "gsap": "^1.19.1",
+    "gsap": "^3.6.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
